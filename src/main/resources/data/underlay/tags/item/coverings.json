@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#minecraft:wool_carpets",
+    "minecraft:moss_carpet",
+    "minecraft:snow",
+    { "id": "supplementaries:doormat", "required": false }
+  ]
+}

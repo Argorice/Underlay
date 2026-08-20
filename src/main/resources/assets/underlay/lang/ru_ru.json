@@ -1,0 +1,15 @@
+{
+  "underlay.config.title": "Underlay — настройка блоков",
+  "underlay.config.search": "Поиск по названию или id…",
+  "underlay.config.filter": "Фильтр",
+  "underlay.config.filter.all": "Все",
+  "underlay.config.filter.enabled": "Включённые",
+  "underlay.config.filter.disabled": "Выключенные",
+  "underlay.config.apply": "Применить",
+  "underlay.config.reset": "Сбросить",
+  "underlay.config.applied": "Underlay: список блоков применён",
+  "underlay.config.no_permission": "Underlay: для изменения списка блоков нужен уровень прав 2",
+  "underlay.config.open_world_hint": "Откройте мир, чтобы видеть базовые теги — вне мира редактируется локальный файл оверрайдов",
+  "key.underlay.open_config": "Открыть настройки Underlay",
+  "key.categories.underlay": "Underlay"
+}

@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+bin/
+
+# Run directories
+run/
+runs/
+run-data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Private working files — never published
+local/
+underlay-tz.md

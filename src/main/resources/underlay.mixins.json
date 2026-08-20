@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.argorice.underlay.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "dev.argorice.underlay.mixin.UnderlayMixinPlugin",
+  "mixins": [
+    "BlockStateBaseMixin",
+    "compat.create.ContraptionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

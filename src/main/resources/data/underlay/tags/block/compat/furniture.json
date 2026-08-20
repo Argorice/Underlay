@@ -1,0 +1,25 @@
+{
+  "values": [
+    { "id": "#another_furniture:chairs", "required": false },
+    { "id": "#another_furniture:tables", "required": false },
+    { "id": "#another_furniture:benches", "required": false },
+    { "id": "#another_furniture:stools", "required": false },
+    { "id": "#another_furniture:shelves", "required": false },
+    { "id": "#another_furniture:planter_boxes", "required": false },
+    { "id": "#mcwfurnitures:chairs", "required": false },
+    { "id": "#mcwfurnitures:tables", "required": false },
+    { "id": "#mcwfurnitures:stools", "required": false },
+    { "id": "#mcwfurnitures:cabinets", "required": false },
+    { "id": "mcwfurnitures:oak_chair", "required": false },
+    { "id": "mcwfurnitures:oak_table", "required": false },
+    { "id": "mcwfurnitures:oak_stool_chair", "required": false },
+    { "id": "framedblocks:framed_chair", "required": false },
+    { "id": "framedblocks:framed_table", "required": false },
+    { "id": "framedblocks:framed_pedestal", "required": false },
+    { "id": "framedblocks:framed_post", "required": false },
+    { "id": "framedblocks:framed_fence", "required": false },
+    { "id": "framedblocks:framed_fence_gate", "required": false },
+    { "id": "framedblocks:framed_door", "required": false },
+    { "id": "framedblocks:framed_trapdoor", "required": false }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "underlay.config.title": "Underlay — Block Settings",
+  "underlay.config.search": "Search by name or id…",
+  "underlay.config.filter": "Filter",
+  "underlay.config.filter.all": "All",
+  "underlay.config.filter.enabled": "Enabled",
+  "underlay.config.filter.disabled": "Disabled",
+  "underlay.config.apply": "Apply",
+  "underlay.config.reset": "Reset",
+  "underlay.config.applied": "Underlay: block list applied",
+  "underlay.config.no_permission": "Underlay: permission level 2 is required to change the block list",
+  "underlay.config.open_world_hint": "Open a world to see tag defaults — outside a world you are editing the local override file",
+  "key.underlay.open_config": "Open Underlay settings",
+  "key.categories.underlay": "Underlay"
+}
