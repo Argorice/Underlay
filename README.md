@@ -1,87 +1,60 @@
-# Underlay
+# Underlay (archived)
 
-**A decorative bottom layer for any block. Carpets continue under chests, snow drifts around fences, your floor stays whole.**
+**A decorative bottom layer for any block — carpets under chests, snow under fences, floors that stay whole.**
 
-*Minecraft 1.21.1 · NeoForge*
+*Minecraft 1.21.1 · NeoForge · No longer developed*
 
 ---
 
-Ever built a nice carpeted hall, placed a chest, and got a hole in your floor?
-In vanilla, a block cell can only hold one block — so every anvil, door, fence
-or machine punches a gap into your carpet.
+## Use this instead
 
-Underlay fixes that. It lets a thin covering — a carpet, moss, or a snow
-layer — share a cell with the block standing on it. Purely visual with a touch
-of real collision, no ticking block entities, no impact on redstone or game
-mechanics.
+> ### [**Underlay by Dooji**](https://github.com/dooji2/underlay)
+> [Modrinth](https://modrinth.com/mod/underlay) · [CurseForge](https://www.curseforge.com/minecraft/mc-mods/underlay)
+>
+> Same idea, years of polish, 8.7M+ downloads, and it runs on Fabric, Forge and NeoForge. If you came here looking for a mod, that's the one to install.
 
-## What you can do
+I started this without checking whether it already existed. It did — under the same name, no less. Rather than ship a second mod into a solved problem, I'm archiving this one and pointing at the original.
 
-- **Lay a carpet under things.** Click a carpet on the free part of the floor
-  around an anvil (or any non-full block), and the carpet slides into its
-  cell. Chests, beds, doors, fences, flower pots, machines, furniture — if the
-  covering would be visible, it can go under it.
-- **Break it like a carpet.** Aim at the visible part of the covering — it
-  highlights like a real block — and left-click. It pops off as an item.
-- **Build on it.** Place blocks onto a carpet and they stand flush on top of
-  it. Placing a block onto a *real* carpet block absorbs the carpet into an
-  underlay automatically — no more blocks floating one cell above your rugs.
-- **Stack snow.** Snow layers pile up 1→8 just like vanilla. A drift that
-  reaches full height in an open cell becomes a real snow block.
-- **Walk on it.** Coverings have their real collision: carpets give the usual
-  1/16 step, snow gives the vanilla stepped heights.
-- Carpets need support, exactly like the real thing: break the block below and
-  the covering drops.
+The code stays public because parts of it may be useful to someone.
 
-## Works with your mods
+---
 
-Nothing is hardcoded. Which blocks accept a covering and which items count as
-coverings is driven by data tags, so any mod works out of the box or with a
-tiny datapack. By default, *any* block that leaves the bottom of its cell
-visible is a valid carrier — Create machines, Supplementaries decor, Quark
-chests, furniture mods, all of it.
+## What was here
 
-There's also an in-game settings screen (default key `U`, or via the mod
-list): blocks grouped by mod, search, per-block toggles. Your choices are
-overrides on top of the tags, so mod updates never wipe them.
+Placing a covering into an occupied cell, a settings screen, and:
 
-Create contraptions carry their coverings along: assemble a glued machine and
-the carpets under its blocks travel with it, coming back in the right cells on
-disassembly — rotation included.
+- **Chunk-attachment storage.** Layers live in a per-chunk data attachment — no block entities, nothing ticking, saved and loaded with the chunk itself. Serialized format is versioned, and registry ids of coverings from uninstalled mods are preserved rather than dropped, so removing a mod never corrupts a chunk.
+- **Baked into the section mesh** via `AddSectionGeometryEvent` rather than drawn per frame. Render cost is paid once on section rebuild.
+- **Real collision.** Carpets give the usual 1/16 step, snow the vanilla stepped heights.
+- **Snow stacking** 1→8, becoming a real snow block when a drift fills an open cell.
+- **Absorbing real carpets** — placing a block onto a carpet turns it into an underlay instead of leaving the block floating.
+- **Create contraptions** carry their coverings through assembly and disassembly, rotation included.
+- **Tag-driven** carriers and coverings, with an in-game screen for per-block overrides on top of the tags.
 
-## Configuration
+## Honest comparison
 
-Server config (`config/underlay-server.toml`): master switch, item drops,
-snow melting, the "any non-full block is a carrier" rule, layer collision.
-Client config: render distance for layers, biome tint. Tag overrides from the
-settings screen live in `config/underlay-overrides.json`.
+Where this one went further:
 
-For datapack authors, three tags control everything:
+| | This | Dooji's |
+|---|---|---|
+| Storage | Per-chunk attachment | Global map per dimension, custom persistence |
+| Collision | Real, per covering | Visual only |
+| Snow stacking | 1→8, promotes to full block | — |
+| Create contraptions | Carried through assembly | — |
+| Settings UI | In-game screen, grouped by mod | JSON config |
 
-```
-underlay:allows_underlay   blocks that can stand on a covering
-underlay:denies_underlay   blacklist, wins over everything
-underlay:coverings         items that can be laid down (item tag)
-```
+Where Dooji's is ahead — and it matters more than the list above:
 
-There is also a small Java API (`dev.argorice.underlay.UnderlayAPI`) for mod
-developers who want programmatic access.
+- **Sodium compatibility.** Sodium replaces the chunk meshing path, and without a dedicated patch, layers simply don't render for most players. Dooji's has that patch; this doesn't.
+- **Jade, WorldEdit, minecarts, structure templates.** The kind of integration you only discover through years of bug reports.
+- **Fabric, Forge and NeoForge**, across many Minecraft versions.
 
-## Known issues
+A cleaner storage model doesn't beat working in the packs people actually play. That's the honest summary.
 
-- Create Aeronautics / Sable airships assemble through their own physics
-  pipeline, and coverings don't travel with them yet. Regular Create
-  contraptions (bearings, pistons, gantries, trains) work fine.
-- A full-height snow drift packed around a block (a buried fence) stays
-  visual, so torches and other support-needing blocks can't be placed on it.
-  Free-standing drifts turn into real snow and behave normally.
-- Coverings inside a flying contraption aren't rendered mid-flight; they
-  reappear on disassembly.
+## Credits
 
-## Building from source
-
-JDK 21, then `./gradlew build` — the jar lands in `build/libs/`.
+The concept, the name, and the mod worth installing all belong to [Dooji](https://github.com/dooji2). No affiliation, no endorsement — just a pointer to the better option.
 
 ## License
 
-MIT. Do whatever you like with it — just credit **Argorice**.
+LGPL-3.0. Take whatever's useful.
